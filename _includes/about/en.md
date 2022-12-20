@@ -1,0 +1,3 @@
+Greetings, I am Jianxin (a.k.a. Kenshin, _@P1anet_), an unnamed postgraduate student from [the School of Computer Science, Zhejiang University](http://www.en.cs.zju.edu.cn/). My goal is to become a wild iron man like [Peng Zhihui](https://github.com/peng-zhihui). Motto: A gym-goer who can't play the guitar is not a good programmer.
+
+The current physical version of me mainly breathes the air of Hangzhou, Zhejiang Province, PRC. In the future, I hope to travel around various parts of the motherland to see the beautiful scenery, and also to go abroad to expand horizons. My cyber doppelgängers often appear on [Bilibili](https://space.bilibili.com/18617894), [Github](https://github.com/P1anet) and so on.
