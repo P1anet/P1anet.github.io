@@ -6,6 +6,7 @@ date: 2023-01-11
 author: "Kenshin"
 header-img: "img/post-bg/post-bg-default.png"
 tags: 
+  - LearnCS
 ---
 
 ![bitfusion集群](/img/in-post/cs_learning/2023-01-11-bitfusion-cluster.png)
