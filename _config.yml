@@ -103,7 +103,7 @@ netease_comment: false
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "会编程，会健身"
+sidebar-about-description: "不会弹吉他的健身人不是一个好程序员"
 sidebar-avatar: # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
@@ -116,6 +116,9 @@ service-worker: true
 
 # MathJax rendering for layout:page (e.g. post preview)
 page-mathjax: false
+
+busuanzi:
+  enable: true
 
 # Friends
 friends:

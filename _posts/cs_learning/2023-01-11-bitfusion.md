@@ -74,7 +74,7 @@ bitfusion使用介入技术执行共享：截获寻址本地加速器（PCIe主�
   - 查看显卡和服务器兼容：https://www.nvidia.com/zh-cn/data-center/resources/vgpu-certified-servers/
 - esxi开启ssh（或在vcenter上开）
 - 使用xftp或winscp将驱动解压后上传至tmp目录下
-- lspci | grep NVIDIA
+- lspci \| grep NVIDIA
 - esxcli software vib install -v tmp/****.vib #安装驱动注意使用绝对路径
 - 重启机器后nvidia-smi
 - 关闭ECC：nvidia-smi -e 0
