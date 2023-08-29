@@ -25,6 +25,8 @@ tags:
 
 ## gcc/g++
 
+GCC: GNU Compiler Collection. 包含了C, C++, Obejective-C, JAVA, Ada, GO等语言前端，也包括相应的库(libstdc++, libgcj等)
+
 1. 工作流程
    - 源代码(`.h, .c, .cpp`)
    - ↓预处理器↓(头文件展开，宏替换，注释删除)
@@ -56,7 +58,7 @@ tags:
 3. gcc和g++的区别
    - 对于.c代码，gcc将其视为c语言程序，g++将其视为c++程序
    - 对于.cpp代码，两者都视为c++程序（语法规则更严谨）
-   - 在编译阶段，g++也调用gcc完成，但链接阶段gcc不能自动和c++库链接（可以用gcc -lstdc++）
+   - 在编译阶段，g++也调用gcc完成，但链接阶段gcc不能自动和c++库链接（可以用gcc -l stdc++）
    - 只有用gcc编译.c文件，__cplusplus宏（标志编译器是否按c++语法解释代码）才是未定义的
 
 ## 库
@@ -69,6 +71,12 @@ tags:
   - 静态库．GCC进行链接时，会把静态库中代码打包到可执行程序中
   - 动态库．GCC进行链接时，动态库的代码不会被打包到可执行程序中
   - 程序启动之后，动态库会被动态加载到内存中，通过ldd(list dynamic dependencies)命令检查动态库依赖关系
+- 静态库
+  - 优点：加载速度快；发布程序时无需提供，移植方便
+  - 缺点：消耗系统资源，浪费内存；更新、部署、发布麻烦
+- 动态库
+  - 优点：实现进程间资源共享；更新、部署、发布简单；可以控制何时加载动态库
+  - 缺点：加载比静态库慢；发布程序时需要提供依赖的动态库
 
 ### 静态库
 
@@ -86,7 +94,7 @@ tags:
       - c - 建立备存文件
       - s - 索引
 - 使用
-  - `-L`指定库目录，`-l`指定库名称，即`libxxx.a`中的`xxx`部分，区分库名和库文件名
+  - `-L`指定库目录，`-l`指定库名称，即`libxxx.a`中的`xxx`部分，注意区分库名和库文件名
 
 ### 动态库
 
@@ -101,12 +109,13 @@ tags:
   - 使用`gcc -c -fpic/-fPIC xxx.c`获得.o文件，得到和位置无关的代码
   - 使用`gcc -shared xxx.o -o libxxx.so`获得动态库
 - 使用
+  - `ldd executable`列出可执行程序的动态库依赖关系
   - 如何定位共享库文件呢？
     - 当系统加载可执行代码时候，能够知道其所依赖的库的名字，但是还需要知道绝对路径。此时就需要系统的动态载入器来获取该绝对路径。
     - 对于elf格式的可执行程序，是由ld-linux.so来完成的，它先后搜索elf文件的`DT_RPATH`段 -> 环境变量`LD_LIBRARY_PATH` -> `/etc/ld.so.cache`文件列表 -> `/lib/`, `/usr/lib`目录找到库文件后将其载入内存。
-  - 配置环境变量`LD_LIBRARY_PATH`
-  - `vim /etc/profile`
-  - `vim /etc/ld.so.conf` -> `ldconfig`
+  1. 配置环境变量`LD_LIBRARY_PATH`
+  2. `vim /etc/profile` -> `source`
+  3. `vim /etc/ld.so.conf` 将路径贴在文件下 -> `ldconfig`
 
 ## Makefile
 
@@ -126,7 +135,7 @@ GDB是由GNU软件系统社区提供的调试工具，同GCC配套组成了一�
 
 ### 准备工作
 
-通常，在为调试而编译时我们会0关掉编译器的优化选项（`-o`），并打开调试选项（`-g`）。另外，`-Wall`在尽量不影响程序行为的情况下选项打开所有warning，也可以发现许多问题，避免一些不必要的BUG
+通常，在为调试而编译时我们会关掉编译器的优化选项（`-O`），并打开调试选项（`-g`）。另外，`-Wall`在尽量不影响程序行为的情况下选项打开所有warning，也可以发现许多问题，避免一些不必要的BUG
 
 `gcc -g -Wall program.c -o program`
 
@@ -181,15 +190,21 @@ GDB是由GNU软件系统社区提供的调试工具，同GCC配套组成了一�
   - p/print 变量名（打印变量值）
   - ptype 变量名（打印变量类型）
 - 自动变量操作
-  - display num（自动打印指定变量的值）
+  - display 变量名（自动打印指定变量的值）
   - i/info display
   - undisplay 编号
 - 其它操作
   - set var 变量名=变量值
   - until（跳出循环）
+  - set print pretty
+  - layout src (ctrl+x a)
 
 ## 文件IO
 
-c库函数 fopen fclose fread fwrite fgets fputs fscanf fprintf fseek fgetc fputc ftell feof fflushc
+c库函数 fopen fclose fread fwrite fgets fputs fscanf fprintf fseek fgetc fputc ftell feof fflush
 
-fopen返回值FILE* fp -> 数据结构{文件描述符，读写指针，缓冲区}
+fopen返回值FILE* fp -> 数据结构{文件描述符，文件读写指针，I/O缓冲区}
+
+文件描述符（整型值）：索引到对应的磁盘文件
+文件读写指针（位置）：读写文件过程中指针的实际位置
+I/O缓冲区（内存地址）：通过寻址找到对应的内存块
