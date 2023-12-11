@@ -83,7 +83,7 @@ eg接雨水：
 // dfs
 class Solution {
 public:
-    const int dirs[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    const int dirs[4][2] = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} };
 
     bool ifDfs(vector<vector<char>>& grid, vector<vector<bool>>& visited, int i, int j) {
         if (i < 0 || i >= grid.size()) return false;
@@ -118,7 +118,7 @@ public:
 // bfs
 class Solution {
 public:
-    const int dirs[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    const int dirs[4][2] = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} };
 
     bool ifBfs(vector<vector<char>>& grid, vector<vector<bool>>& visited, int i, int j) {
         if (i < 0 || i >= grid.size()) return false;
