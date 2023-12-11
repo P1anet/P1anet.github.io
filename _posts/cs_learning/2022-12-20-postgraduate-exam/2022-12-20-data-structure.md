@@ -34,30 +34,23 @@ tags:
     - 完全图：任意两顶点之间都有边或两条方向相反的弧
     - 简单路径：顶点不重复。简单回路：除起点终点外顶点不重复
 
-## 排序总结
-
-- ![img](/img/in-post/cs_learning/2022-12-20-postgraduate-exam/sorting.png)
--
-- 不稳定的算法：**快**速，**希**尔，简单**选**择，**堆**
-- 时间复杂度 O(nlog~2~n)的排序算法：**快**速，**希**尔，**归**并，**堆**。其他都是 O(n²)
-- 空间复杂度：除快速 O(log~2~n)（栈空间），归并 O(n)，基数 O(r~d~)，其他都是 O(1)
-- 直接插入排序和冒泡排序在初始序列已经有序的情况下可以达到 O(n)
-- **经过一趟排序能保证一个关键字到达最终位置：交换类和选择类**
-- 关键字比较次数和原始序列无关：简单选择排序和折半插入排序
-- 排序趟数和原始序列有关：交换类排序
-- 时间与原始序列无关：选择排序，归并排序
-- 借助于“比较”进行排序的算法，最坏情况下的时间复杂度至少为 O(nlog~2~n)
-
 # 绪论
 
 - 数据结构的基本概念
   - 数据：客观事物的符号表示
-  - 数据元素：基本单位（数据项：最小单位，当数据元素为结构体时）
+  - 数据元素：基本单位（数据项：构成数据元素的最小单位，当数据元素为结构体时）
   - 数据对象：性质相同的数据元素的集合
-  - 数据结构：相互之间存在特定关系的数据元素的集合「逻辑结构+存储结构+对数据的运算」
-  - 数据的逻辑结构
-    - 线性结构：首，尾，前驱，后继
-    - 非线性结构
+  - 数据类型：一个值的集合和定义在此集合上一组操作的总称
+    - 原子类型：其值不可再分
+    - 结构类型：其值可以再分解为若干分量
+    - 抽象数据类型：抽象数据组织和与之相关的操作
+  - 数据结构：相互之间存在特定关系的数据元素的集合「逻辑结构+存储结构+对数据的运算（数据操作）」
+    - Data-Structure=(D, S)，D是数据元素的有限集，S是D上关系的有限集
+  - 数据的逻辑结构：线性结构，非线性结构
+    - 线性结构（一对一）：首，尾，前驱，后继
+    - 集合
+    - 树型结构（一对多）
+    - 图状结构/网状结构（多对多）
   - 数据的物理结构
     - 顺序存储
     - 链式存储
@@ -65,12 +58,15 @@ tags:
     - 散列存储：顺序存储的扩展，散列函数
       算法的基本概念
   - 数据的运算
-    - 定义针对逻辑结构，指出运算的功能
-    - 实现针对存储结构，指出运算的具体操作步骤
-- 算法的特性：有穷，确定，可行，输入，输出
-  - 设计目标：正确（最重要最基本），可读，健壮（容错），效率（时间，存储量）
+    - 运算的定义针对逻辑结构，指出运算的功能
+    - 运算的实现针对存储结构，指出运算的具体操作步骤
+- 算法是对特定问题求解方法的一种描述，是指令的有限序列
+  - 算法的描述：自然语言、形式语言、计算机程序设计语言
+  - 算法的特性：有穷，确定，可行，输入，输出
+  - 设计目标：正确（最重要最基本），可读，健壮（容错），效率（时间，存储量）（，通用性）
 - 抽象数据类型 ADT：数据对象集，数据关系集，操作集
   - 要素：状态+操作
+  - ADT=(D, S, P)，D是数据对象，S是D上的关系集，P是对D的基本操作集
 
 # 线性表
 
@@ -81,14 +77,32 @@ tags:
 - 链表：动态分配
   - 单链表，双链表
   - 循环单链表，循环双链表
-  - 静态链表（数组存储）
+  - 静态链表（数组存储，以游标替代next指针）
 - 存储密度
   - 顺序表=1，链表<1
 
 ## 栈 FILO
 
+C++标准库是有多个版本的，要知道我们使用的STL是哪个版本，才能知道对应的栈和队列的实现原理。
+
+那么来介绍一下，三个最为普遍的STL版本：
+
+    HP STL 其他版本的C++ STL，一般是以HP STL为蓝本实现出来的，HP STL是C++ STL的第一个实现版本，而且开放源代码。
+
+    P.J.Plauger STL 由P.J.Plauger参照HP STL实现出来的，被Visual C++编译器所采用，不是开源的。
+
+    SGI STL 由Silicon Graphics Computer Systems公司参照HP STL实现，被Linux的C++编译器GCC所采用，SGI STL是开源软件，源码可读性甚高。
+
+栈是以底层容器完成其所有的工作，对外提供统一的接口，底层容器是可插拔的（也就是说我们可以控制使用哪种容器来实现栈的功能）。
+
+所以STL中栈往往不被归类为容器，而被归类为container adapter（容器适配器）。
+
+栈的底层实现可以是vector，deque(默认)，list 都是可以的， 主要就是数组和链表的底层实现。
+
+队列中先进先出的数据结构，同样不允许有遍历行为，不提供迭代器, SGI STL中队列一样是以deque为缺省情况下的底部结构。
+
 - 顺序栈
-- 栈空`top=-1`，栈满，上溢，下溢
+- 栈空`top=-1`，栈满（动态顺序栈满使用realloc扩容），上溢（出错），下溢（可能正常，作为控制转移条件）
 
 ```c
 stack[++top]=x;      //进栈
@@ -97,7 +111,7 @@ x=stack[top--];      //出栈
 
 - 链栈（头插）
 - 栈空`lst->next==NULL`、栈满（不存在）
-
+   
 ```c
 p->next=lst->next;lst->next=p;                        //进栈
 p=lst->next;x=p->data;lst->next=p->next;free(p);      //出栈
@@ -118,6 +132,7 @@ qu.rear=(qu.rear+1)%maxSize;qu.data[qu.rear]=x;      //入队
 qu.front=(qu.front+1)%maxSize;x=qu.data[qu.front];   //出队
 ```
 
+- 顺序队列存在“假溢出”现象 -> 循环队列
 - 循环队列是指顺序存储的队列，而不是逻辑上的循环，如循环单链表表示的队列不能称为循环队列
 - 链队：队尾 rear 队头 front
 - 共享栈、双端队列
@@ -148,6 +163,7 @@ void GetNext(char* p,int next[]){
 	int k = -1, j = 0;
 	while (j < pLen - 1)
 		//p[k]表示前缀，p[j]表示后缀
+        //k是前缀末尾下标，j是后缀末尾的后一个下标即当前位置
 		if (k == -1 || p[j] == p[k])
 			next[++j] = ++k;
 		else
@@ -201,8 +217,7 @@ int KmpSearch(char* s, char* p){
 
 ## 数组，矩阵，广义表
 
-- 数组
-
+- 数组：数组是存放在**连续内存空间**上的**相同类型**数据的**集合**。
   - 一维数组
   - 二维数组：行优先，列优先
 
@@ -212,7 +227,7 @@ int KmpSearch(char* s, char* p){
 
   - 稀疏矩阵
 
-    - 顺序存储：三元组（值，行下标，列下标），伪地址（n _ 2, n _ (i - 1) + j )
+    - 顺序存储：三元组（值，行下标，列下标），伪地址(n _ 2, n _ (i - 1) + j)
 
     - 链式存储：邻接表（行号；值，列号）
 
@@ -221,8 +236,8 @@ int KmpSearch(char* s, char* p){
 - 广义表：表元素可以是原子或者广义表的一种线性表的扩展结构
   - 长度：表中最上层元素的个数
   - 深度：表中括号的最大层数
-  - 广义表非空时，第一个元素为表头，其余元素组成的表是表尾
-  - 原子结点：标记域，数据域；广义表结点：标记域，头指针域，尾指针域
+  - 广义表非空时，第一个元素为表头，**其余元素组成的表是表尾**
+  - 原子结点：标记域，数据域；广义表结点：标记域，头指针域，尾指针域7
   - 标记域为 0，原子；1，广义表
   - 扩展线性表……
 
@@ -232,6 +247,7 @@ int KmpSearch(char* s, char* p){
 - 单结点既是根结点又是叶子结点
 - 顺序存储结构：双亲存储结构——Kruskal 算法应用
 - 链式存储结构：孩子存储结构——图的邻接表；孩子兄弟存储结构
+- 表示形式：倒悬树、嵌套集合、广义表、凹入法
 
 ## 二叉树
 
@@ -249,6 +265,7 @@ int KmpSearch(char* s, char* p){
     - 0 开始编号：双亲结点$\lceil \frac{i}{2} \rceil-1$，左孩子$2i$+1，右孩子$2i+2$
   - Catalan( )函数：n 个结点能构成 h(n)种不同的二叉树，$h(n)=\frac{C_{2n}^{n}}{n+1}$
   - 具有 n 个结点的完全二叉树的高度为$\lfloor log_2n\rfloor+1$或$\lceil log_2(n+1)\rceil$
+  - `n`个结点的二叉链表中含有`n + 1`个空链域
 - 存储结构
   - 顺序存储：适合完全二叉树
   - 链式存储：<data, lchild, rchild>
@@ -258,6 +275,112 @@ int KmpSearch(char* s, char* p){
   - 若前序队列对后序队列刚好相反，则不存在一个结点同时有左右孩子
   - 叶子结点在三种序列中的相对顺序不变
   - 先序遍历序列即为各结点入栈时打印所得的序列，中序遍历序列即为各结点出栈时打印所得的序列
+
+```cpp
+// 递归法
+class Solution {
+public:
+    void traversal(TreeNode* cur, vector<int>& vec) {
+        if (cur == NULL) return;
+        vec.push_back(cur->val);    // 中，前序
+        traversal(cur->left, vec);  // 左
+        // vec.push_back(cur->val);    // 中，中序
+        traversal(cur->right, vec); // 右
+        // vec.push_back(cur->val);    // 中，后序
+    }
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> result;
+        traversal(root, result);
+        return result;
+    }
+};
+// 迭代法
+// 前序遍历中访问节点（遍历节点）和处理节点（将元素放进result数组中）可以同步处理，但是中序就无法做到同步！
+// 前序遍历
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        stack<TreeNode*> st;
+        vector<int> result;
+        if (root == NULL) return result;
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode* node = st.top();                       // 中
+            st.pop();
+            result.push_back(node->val);
+            if (node->right) st.push(node->right);           // 右（空节点不入栈）
+            if (node->left) st.push(node->left);             // 左（空节点不入栈）
+        }
+        return result;
+    }
+};
+// 中序遍历
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> result;
+        stack<TreeNode*> st;
+        TreeNode* cur = root;
+        while (cur != NULL || !st.empty()) {
+            if (cur != NULL) { // 指针来访问节点，访问到最底层
+                st.push(cur); // 将访问的节点放进栈
+                cur = cur->left;                // 左
+            } else {
+                cur = st.top(); // 从栈里弹出的数据，就是要处理的数据（放进result数组里的数据）
+                st.pop();
+                result.push_back(cur->val);     // 中
+                cur = cur->right;               // 右
+            }
+        }
+        return result;
+    }
+};
+// 后序遍历
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        stack<TreeNode*> st;
+        vector<int> result;
+        if (root == NULL) return result;
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode* node = st.top();
+            st.pop();
+            result.push_back(node->val);
+            if (node->left) st.push(node->left); // 相对于前序遍历，这更改一下入栈顺序 （空节点不入栈）
+            if (node->right) st.push(node->right); // 空节点不入栈
+        }
+        reverse(result.begin(), result.end()); // 将结果反转之后就是左右中的顺序了
+        return result;
+    }
+};
+// 统一的迭代法。加标记指针
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> result;
+        stack<TreeNode*> st;
+        if (root != NULL) st.push(root);
+        while (!st.empty()) {
+            TreeNode* node = st.top();
+            if (node != NULL) {
+                st.pop(); // 将该节点弹出，避免重复操作，下面再将右中左节点添加到栈中
+                // st.push(node); st.push(NULL); // 前序
+                if (node->right) st.push(node->right);  // 添加右节点（空节点不入栈）
+                st.push(node); st.push(NULL); // 添加中节点。中节点访问过，但是还没有处理，加入空节点做为标记。
+                if (node->left) st.push(node->left);    // 添加左节点（空节点不入栈）
+                // st.push(node); st.push(NULL); // 后序
+            } else { // 只有遇到空节点的时候，才将下一个节点放进结果集
+                st.pop();           // 将空节点弹出
+                node = st.top();    // 重新取出栈中元素
+                st.pop();
+                result.push_back(node->val); // 加入到结果集
+            }
+        }
+        return result;
+    }
+};
+```
 
 - 带中序序列的两个序列可以唯一确定一棵二叉树
 
@@ -281,47 +404,47 @@ int KmpSearch(char* s, char* p){
 
   - 以中序线索二叉树为例
 
-  - ```c
-      void InThread(TBTNode *p, TBTNode *&pre){
-      if(p!=NULL){
+    ```c
+    void InThread(TBTNode *p, TBTNode *&pre){
+        if(p!=NULL){
         InThread(p->lchild, pre);
         if(p->lchild==NULL){
-          p->lchild=pre;
-          p->ltag=1;
+            p->lchild=pre;
+            p->ltag=1;
         }
         if(pre!=NULL&&pre->rchild==NULL){
-          pre->rchild=p;
-          pre->rtag=1;
+            pre->rchild=p;
+            pre->rtag=1;
         }
         pre=p;
         InThread(p->rchild, pre);
-      }
-      }
-      void createInThread(TBTNode *root){
-      TBTNode *pre=NULL;
-      if(root!=NULL){
+        }
+        }
+        void createInThread(TBTNode *root){
+        TBTNode *pre=NULL;
+        if(root!=NULL){
         InThread(root, pre);
         pre->rchild=NULL;
         pre->rtag=1;
-      }
-      }
+        }
+    }
     ```
-  - ```c
-      TBTNode *First(TBTNode *p){
-      while(p->ltag==0)
+    ```c
+    TBTNode *First(TBTNode *p){
+        while(p->ltag==0)
         p=p->lchild;
-      return p;
-      }
-      TBTNode *Next(TBTNode *p){
-      if(p->rtag==0)
+        return p;
+    }
+    TBTNode *Next(TBTNode *p){
+        if(p->rtag==0)
         return First(p->rchild);
-      else
+        else
         return p->rchild;
-      }
-      void Inorder(TBTNode *root){
-      for(TBTNode *p=First(root);p!=NULL;p=Next(p))
-      Visit(p);
-      }
+    }
+    void Inorder(TBTNode *root){
+        for(TBTNode *p=First(root);p!=NULL;p=Next(p))
+        Visit(p);
+    }
     ```
 
   - 对于后序线索二叉树
@@ -334,8 +457,8 @@ int KmpSearch(char* s, char* p){
 
 ## 存储方法
 
-- 双亲表示法：数组存储每个节点，增设伪指针指示双亲结点在数组中的位置，根结点下标为 0，伪指针为-1
-- 孩子表示法：每个节点的每个孩子用单链表连接，查找子女直接，查找双亲复杂
+- 双亲表示法：顺序结构，数组存储每个节点，增设伪指针指示双亲结点在数组中的位置，根结点下标为 0，伪指针为-1。查找子女复杂
+- 孩子表示法：每个节点的每个孩子用单链表连接，查找子女直接，查找双亲复杂（类似哈希表的链地址法）
 - 孩子兄弟表示法：结点值 data，第一个孩子结点 firstchild，下一个兄弟结点 nextsibling。查找双亲麻烦
 
 ## 树和森林的互相转换
@@ -345,9 +468,10 @@ int KmpSearch(char* s, char* p){
 - 森林 → 二叉树：孩子兄弟表示法中根结点一定没有右兄弟，即没有右孩子，后一个树作为前一个树的右子树
 - 二叉树 → 森林：不断将根结点有右孩子的二叉树右孩子链接断开，然后二叉树 → 树
 - 先序遍历和后序遍历的对应
-  - 树 二叉树 森林
-  - 先根 先序 先序
-  - 后根 中序 中序
+    |树  |二叉树 | 森林 |
+    | - | - | - |
+    |先根 | 先序 | 先序 |
+    |后根 | 中序 | 中序 |
 
 ## 二叉排序树与平衡二叉树（查找）
 
@@ -380,33 +504,33 @@ int KmpSearch(char* s, char* p){
 
   - (i, j)元素含义：顶点 i 到顶点 j 之间长度为 1 的路径长度(当无直达边存在表示为 0 时)。表现为有边
 
-  - ```c
+    ```c
     typedef struct{
-      int no;
-      char info;
+        int no;
+        char info;
     }VertexType;
     typedef struct{
-      int edges[maxSize][maxSize];
-      int n,e;
-      VertexType vex[maxSize];
+        int edges[maxSize][maxSize];
+        int n,e;
+        VertexType vex[maxSize];
     }MGraph;
     ```
 
 - 邻接表—链式存储
 
-  - ```c
+    ```c
     typedef struct ArcNode{
-      int adjvex;
-      struct ArcNode *nextarc;
-      int info;
+        int adjvex;
+        struct ArcNode *nextarc;
+        int info;
     }ArcNode;
     typedef struct{
-      char data;
-      ArcNode *firstarc;
+        char data;
+        ArcNode *firstarc;
     }VNode;
     typedef struct{
-      VNode adjlist[maxSize];
-      int n,e;
+        VNode adjlist[maxSize];
+        int n,e;
     }AGraph;
     ```
 
@@ -415,9 +539,8 @@ int KmpSearch(char* s, char* p){
   - 顶点结点：data firstin firstout
     - 指向以该顶点为弧头或弧尾的第一个弧结点
 
-- 弧结点：tailvex headvex hlink tlink info
-
-  - hlink, tlink 指向弧头、弧尾相同的下一条弧
+  - 弧结点：tailvex headvex hlink tlink info
+    - hlink, tlink 指向弧头、弧尾相同的下一条弧
 
 - 邻接多重表—用于无向图
 
@@ -503,32 +626,32 @@ int KmpSearch(char* s, char* p){
   //对于同一个图，邻接矩阵遍历得到的BFS和DFS序列唯一，基于邻接表的结果可能不唯一
   ```
 
-## 最小生成树（均针对无向图）
+## 最小生成树（均针对无向图） 
 
 - ```c
-  void Prim(MGraph g, int v0, int &sum){//O(n²)
+  void Prim(MGraph g, int v0, int &sum){                    //O(n²)
     int lowcost[maxSize], vset[maxSize], v;
     int i, j, k, min;
     v=v0;
     for(i=0;i<g.n;++i){
-      lowcost[i]=g.edges[v0][i];
-      vset[i]=0;
+        lowcost[i]=g.edges[v0][i];
+        vset[i]=0;
     }
     vset[v0]=1;
     sum=0;
     for(i=0;i<g.n-1;++i){
-      min=INF;
-      for(j=0;j<g.n;++j)                                  //侯选边中的最小者
-        if(vset[j]==0&&lowcost[j]<min){
-          min=lowcost[j];
-          k=j;
-        }
-      vset[k]=1;
-      v=k;
-      sum+=min;
-      for(j=0;j<g.n;++j)                                  //更新侯选边
-        if(vset[j]==0&&g.edges[v][j]<lowcost[j])
-          lowcost[j]=g.edges[v][j];
+        min=INF;
+        for(j=0;j<g.n;++j)                                  //侯选边中的最小者
+            if(vset[j]==0&&lowcost[j]<min){
+            min=lowcost[j];
+            k=j;
+            }
+        vset[k]=1;
+        v=k;
+        sum+=min;
+        for(j=0;j<g.n;++j)                                  //更新侯选边
+            if(vset[j]==0&&g.edges[v][j]<lowcost[j])
+            lowcost[j]=g.edges[v][j];
     }
   }
   ```
@@ -544,7 +667,7 @@ int KmpSearch(char* s, char* p){
     while(a!=v[a]) a=v[a];
     return a;
   }
-  void Kruskal(MGraph g, int &sum, Road road[]){          //利用并查集，适用于稀疏图
+  void Kruskal(MGraph g, int &sum, Road road[]){            //O(ElogE)利用并查集，适用于稀疏图
     int i;
     int N, E, a, b;
     N=g.n;
@@ -852,6 +975,7 @@ void BubbleSort(int R[], int n){
 
 - ```c
   //堆排序，时间O(nlogn)，空间O(1)，用于逻辑上的完全二叉树，实际上用线性表存储
+  //建堆、插入向上调整，筛选、删除向下调整，排序=建堆+删除堆顶
   void Sift(int R[], int low, int high){
     int i=low, j=2*i;
     int temp=R[i];
@@ -905,35 +1029,38 @@ void BubbleSort(int R[], int n){
 ## 外部排序
 
 - 将内存作为工作空间来辅助外存数据的排序，常用归并排序，k 路归并算法
-- 置换-选择排序：FI 读记录到 WA，选取最小值作为 MINIMAX 输出，再选比 MINIMAX 大的最小关键字作为新的 MINIMAX...直到选不出。得到一个初试归并段
+- 置换-选择排序：FI 读记录到 WA，选取最小值作为 MINIMAX 输出，再选比 MINIMAX 大的最小关键字作为新的 MINIMAX...直到选不出。得到一个初始归并段
 - 最佳归并树：减少归并次数，I/O 次数=带权路径长度\*2→ 赫夫曼树，路径长度=其参加归并的次数
-  - 添加虚段数规则与哈夫曼树不同：对于严格 m 叉树，n~0~=(m-1)n~m~+1，当(n~0~-1)%(m-1)=u=0 不需要添加，否则要添加**m-u-1**个空归并段
+  - 添加虚段数规则与哈夫曼树不同：对于严格 m 叉树，n~0~=(m-1)n~m~+1，当(n~0~-1)%(m-1)=u=0 不需要添加，否则要添加**m-1-u**个空归并段
   - 总缓冲区数目要考虑需要一个输出缓冲区
 - 败者树：提高选最值的效率（是一颗二叉树，高度不包含最上层选出的结点）
   - 叶子结点值为从当前参与归并段中读入的段首记录
   - 非叶子结点，度都为 2，值为叶子结点的序号：不仅可以找到记录值，还可以找到其所在的归并段
   - 建立和调整过程……
 - 时间复杂度：
-
   1.  m 个初始归并段进行 k 路归并，归并的趟数为$\lceil log_km\rceil$
   2.  每一次归并，所有记录都要进行两次 I/O 操作
   3.  置换-选择排序中，所有记录都要进行两次 I/O 操作，选最值时间复杂度根据选择算法而定
   4.  k 路归并败者树的高度为$\lceil log_2k\rceil+1$，选最值需要$\lceil log_2k\rceil$次比较，即时间复杂度为 O(log~2~k)
   5.  k 路归并败者树的建树时间复杂度为 O(klog~2~k)
-
 - 空间复杂度：O(1)
+- 为减少外存读写次数->增大归并路数和减少归并段个数
+  - 利用败者树增大归并路数
+  - 利用置换选择排序增大归并段长度来减少归并段个数
+  - 由长度不等的归并段，进行多路平衡归并，需要构造最佳归并树
 
 ## 总结
 
 - ![img](/img/in-post/cs_learning/2022-12-20-postgraduate-exam/sorting.png)
+- 不稳定的算法：**快**速，**希**尔，简单**选**择，**堆**
 - 时间复杂度 O(nlog~2~n)的排序算法：**快**速，**希**尔，**归**并，**堆**。其他都是 O(n²)
 - 空间复杂度：除快速 O(log~2~n)（栈空间），归并 O(n)，基数 O(r~d~)，其他都是 O(1)
 - 直接插入排序和冒泡排序在初始序列已经有序的情况下可以达到 O(n)
-- 不稳定的算法：**快**速，**希**尔，简单**选**择，**堆**
 - **经过一趟排序能保证一个关键字到达最终位置：交换类和选择类**
-- 关键字比较次数和原始序列无关：简单选择排序和折半插入排序
 - 排序趟数和原始序列有关：交换类排序
-- 时间与原始序列无关：选择排序，归并排序
+- 元素比较次数和原始序列无关：简单选择排序和折半插入排序，基数排序
+- 元素移动次数和原始序列无关：归并排序，基数排序
+- 时间与原始序列无关：选择排序，堆排序，归并排序，基数排序
 - 借助于“比较”进行排序的算法，最坏情况下的时间复杂度至少为 O(nlog~2~n)
 
 # 查找
@@ -1006,7 +1133,7 @@ void BubbleSort(int R[], int n){
   - n 个分支的结点有 n-1 个关键字，互不相等且按递增顺序排列
   - 结点中关键字个数的范围为$\lceil m/2\rceil-1$ ~ $m-1$
   - 叶结点处于同一层，可以用空指针表示，实际有结点，是查找失败到达的位置
-  - B-树是要求所有叶结点在同一层的平衡 m 叉查找树
+  - B-树是要求所有叶结点在同一层的平衡 m 叉查找树(所有节点的平衡因子均等于0)
   - 高度是否包括叶子结点层？已知高度求结点数则要把叶子结点算在内
   - 下层结点内的关键词取值总是落在上层结点关键字所划分的区间内
 - 查找：二叉排序树查找的扩展，结点内可使用**折半查找**提高效率
@@ -1034,7 +1161,7 @@ void BubbleSort(int R[], int n){
 
 - B+树上有一个指针指向关键字最小的叶子结点，所有叶子结点链接成一个线性链表
 
-## 散列表
+## 散列表（哈希表）
 
 - 根据给定的关键字来计算出关键字在表中的地址
 
@@ -1051,9 +1178,10 @@ void BubbleSort(int R[], int n){
 
   - 开放定址法：以冲突 Hash 地址为自变量，通过某种冲突解决函数得到新的空闲地址，**容易产生聚集现象**
     - 线性探测法：增量 1，H~i~(k)=(H(k)+i) Mod m (1≤i≤m-1)，容易产生堆积问题（不可避免!!!）
-    - 平方探测法：增量 0, +1², -1², +2², -2², ... , ±k^2^不能探查到 Hash 表上的所有单元，但至少能探查到一半单元，k≤m/2，m 必须是一个可表示成 4k+3 的质数
-    - 伪随机序列法，双 Hash 法 H(H(k))
+    - 平方探测法：增量 0, +1², -1², +2², -2², ... , ±k^2^不能保证探查到 Hash 表上的所有单元，但至少能探查到一半单元，k≤m/2，m 必须是一个可表示成 4k+3 的质数
+    - 伪随机序列法，再 Hash 法 H(H(k))
   - 链地址法/拉链法：把所有的同义词用单链表连接起来，Hash 表每个单元中存放表头指针，**不会产生聚集现象**，适用于经常插入和删除的情况
+  - 溢出区法：建立公共溢出区
 
 - 性能分析：ASL~1~=找到表中已有表项的平均比较次数。ASL~2~=在表中找不到待查的表项，但找到插入位置的平均比较次数；在表中所有可能散列到的地址上插入新元素时，为找到空位置而进行探查的平均次数
 - 哈希表的查找效率取决于散列函数、处理冲突的方法和装填因子(冲突概率与装填因子大小成正比)
@@ -1069,15 +1197,38 @@ void BubbleSort(int R[], int n){
   | 平方探查法                   | -(1/a)ln(1-a) | 1/(1-a)        |
   | 链地址法                     | 1+a/2         | a+e^a^≈a       |
 
-# 汉诺塔分治法
+- 常见哈希结构：数组，set，map
+
+    set：
+
+    | 集合 | 底层实现 | 是否有序 | 数值是否可以重复 | 能否更改数值 | 查询效率 | 增删效率 |
+    | --- | --- | --- | --- | --- | --- | --- |
+    | std::set | 红黑树 | 有序 | 否 | 否 | O(log n) | O(log n) |
+    | std::multiset | 红黑树 | 有序 | 是 | 否 | O(logn) | O(logn) |
+    | std::unordered_set | 哈希表 | 无序 | 否 | 否 |O(1) | O(1) |
+
+    std::unordered_set底层实现为哈希表，std::set 和std::multiset 的底层实现是红黑树，红黑树是一种平衡二叉搜索树，所以key值是有序的，但key不可以修改，改动key值会导致整棵树的错乱，所以只能删除和增加。
+
+    map:
+
+    | 映射 | 底层实现 | 是否有序 | 数值是否可以重复 | 能否更改数值 | 查询效率 | 增删效率 |
+    | --- | --- | --- | --- | --- | --- | --- |
+    | std::map | 红黑树 | key有序 | key不可重复 | key不可修改 | O(logn) | O(logn) |
+    | std::multimap | 红黑树 | key有序 | key可重复 | key不可修改 | O(log n) | O(log n) |
+    | std::unordered_map | 哈希表 | key无序 | key不可重复 | key不可修改 | O(1) | O(1) |
+
+    std::unordered_map 底层实现为哈希表，std::map 和std::multimap 的底层实现是红黑树。同理，std::map 和std::multimap 的key也是有序的（这个问题也经常作为面试题，考察对语言容器底层的理解）。
+
+# 其他
 
 ```c
+// 汉诺塔分治法
 void Han(int x, int y, int z, int n){     //代表将n个盘子分治地从x移到z上，y为辅助柱
   if(n==1) move(x,z);                     //n为1可以直接解决
   else{
     Han(x,z,y,n-1);                       //分治处理n-1个盘子，从x移动到y上，z为辅助柱
     move(x,z);                            //直接移动x上的一个盘子到z上
-    Han(y,x,z,n-1);                       //分治处理n-1个盘子，从x移动到y上，z为辅助柱
+    Han(y,x,z,n-1);                       //分治处理n-1个盘子，从y移动到z上，x为辅助柱
   }
 }
 ```
