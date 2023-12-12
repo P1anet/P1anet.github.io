@@ -9,6 +9,13 @@ tags:
   - LearnCS
 ---
 
+# Category
+
+- [组件：](#组件)
+- [安装流：](#安装流)
+- [在ubuntu上安装vSphere Bitfusion Client](#在ubuntu上安装vsphere-bitfusion-client)
+- [在esxi主机上配置显卡驱动：](#在esxi主机上配置显卡驱动)
+
 ![bitfusion集群](/img/in-post/cs_learning/2023-01-11-bitfusion-cluster.png)
 
 采用 C-S 架构，最小 vSphere Bitfusion 集群配置为一个客户端、一个服务器和一个 vCenter Server。

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2022.08北海涠洲岛旅行"
+title: "北海涠洲岛旅行计划"
 subtitle: "Travel and Cycle"
 date: 2022-08-01
 author: "Kenshin"
@@ -8,6 +8,11 @@ header-img: "img/post-bg/post-bg-default.png"
 tags:
   - Travel
 ---
+
+# 目录
+
+- [历史](#历史)
+- [补充](#补充)
 
 ## 历史
 

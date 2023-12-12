@@ -1,14 +1,3 @@
-<!--
- * @FilePath     : \workspace\P1anet.github.io\_posts\cs_learning\2023-04-12-testing-framework.md
- * @Author       : P1anet
- * @Date         : 2023-04-12 22:14:50
- * @Version      : V1.0.0
- * @LastEditors  : P1anet
- * @LastEditTime : 2023-04-14 11:13:06
- * @Description  : 测试框架学习，主要是unittest
- * 
- * Copyright (c) 2023 by P1anet, All Rights Reserved. 
--->
 ---
 layout: post
 title: "测试框架"
@@ -20,7 +9,34 @@ tags:
   - LearnCS
 ---
 
-# 测试框架
+# Category
+
+- [Outline](#outline)
+- [各测试框架简介](#各测试框架简介)
+  - [Junit](#junit)
+  - [Selenium](#selenium)
+  - [TestNG](#testng)
+  - [Cucumber](#cucumber)
+  - [Pytest](#pytest)
+  - [Robot Framework](#robot-framework)
+  - [UnitTest/PyUnit](#unittestpyunit)
+  - [Behave](#behave)
+  - [Lettuce](#lettuce)
+  - [Appium](#appium)
+  - [ATX](#atx)
+- [unittest - 单元测试框架](#unittest---单元测试框架)
+  - [面向对象方式支持的概念](#面向对象方式支持的概念)
+  - [Basic Example](#basic-example)
+  - [Command-line Interface](#command-line-interface)
+  - [Test Discovery](#test-discovery)
+  - [Organizing Test code](#organizing-test-code)
+  - [Reusing Old Test code](#reusing-old-test-code)
+  - [Skipping Tests \& Expected Failures](#skipping-tests--expected-failures)
+  - [Distinguishing Test Iterations Using Subtests](#distinguishing-test-iterations-using-subtests)
+  - [Classes \& Functions](#classes--functions)
+  - [Class and Module Fixtures](#class-and-module-fixtures)
+  - [信号处理3.2 新版功能](#信号处理32-新版功能)
+- [Conclusion](#conclusion)
 
 ![自动化测试框架](https://img-blog.csdnimg.cn/c8f527c0a4ac47da9b1ec190d9b24d47.png)
 

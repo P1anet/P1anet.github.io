@@ -9,7 +9,19 @@ tags:
   - LearnCS
 ---
 
-#  Introduction and Proofs
+# Category
+
+- [Introduction and Proofs](#introduction-and-proofs)
+- [Induction](#induction)
+- [Number Theory](#number-theory)
+- [Graph Theory and Coloring](#graph-theory-and-coloring)
+- [Sums and Asymptotics](#sums-and-asymptotics)
+- [Divide and Conquer](#divide-and-conquer)
+- [Linear Recurrences](#linear-recurrences)
+- [Counting Rules](#counting-rules)
+- [Probability](#probability)
+
+##  Introduction and Proofs
 
 - A proof is a method for ascertaining the truth. Thinking of determining factors:
   - Experimentation & observing, Sampling & counter examples, Judge & jury, Word of God or your boss, Customers( for murchants )
@@ -29,7 +41,7 @@ tags:
 - Logical deductions, much more elementary facts
 - Good proofs are correct, complete, clear, brief, elegant.
 
-# Induction
+## Induction
 
 - **Proof by contradiction**: To prove P is true, we assume P is False(i.e. not P is T), and then use that hypothesis to derive a falsehood or contradiction.
 - Ordinary Induction Def: Let P(n) be a predicate. If P(n) is true and for all natural numbers n, P(n) implies P(n+1) is true, then for all n, natural numbers, P(n) is true.
@@ -44,7 +56,7 @@ tags:
 - Invariant: Proof is always by induction.
 - Ordering principle
 
-# Number Theory
+## Number Theory
 
 - Study of the integers
 
@@ -106,7 +118,7 @@ tags:
 
 - FHE over the integers
 
-# Graph Theory and Coloring
+## Graph Theory and Coloring
 
 - Def: A graph G is a pair of sets (V,E) where V is a nonempty set of items called vertices or nodes, and E is a set of 2-item subsets of V called edges.
   - Two nodes X~i~ and X~j~ is adjacent if {X~i~, X~j~} is an edge.
@@ -204,7 +216,7 @@ tags:
 - A total order consistent with a partial order is called a topological sort. A top-sort of a poset (A, ≤) is a total order (A, ≤~T~) such that $≤\subseteq ≤_T$ 
   - Thm: Every finite poset has a topological sort.
 
-# Sums and Asymptotics
+## Sums and Asymptotics
 
 - Perturbation method
 - Integration bounds for ∑f(i) when f is a positive increasing function.
@@ -218,21 +230,21 @@ tags:
   - f(x)=o(g(x)) lim f(x)/g(x)=0
   - f(x)=ω(g(x)) lim f(x)/g(x)=∞
 
-# Divide and Conquer
+## Divide and Conquer
 
 - Substitution(Guess & Verify)
 - Plug & Chug
 - Akra & Bazzi Thm: ![image-20210415230636931](/img/in-post/cs_learning/2022-08-11-discrete-math.png)
 - If g(x)=θ(x^t^) for t ≥ 0, and ∑a~i~b~i~^t^<1, then T(x)=θ(g(x))
 
-# Linear Recurrences
+## Linear Recurrences
 
 - solution space
 - determine the constant factors: boundry conditions
 - characteristic equation
 -  homogeneous recurrence→particular solution→boundry conditions
 
-# Counting Rules
+## Counting Rules
 
 - The cardinality of a set S is the number of elements in S, denoted |S|
 - A sequence is an ordered collection of elements (components/terms) not necessarily distinct.
@@ -252,5 +264,5 @@ tags:
 - Inclusion-Exclusion principle
 - Combinatorial Proofs
 
-# Probability
+## Probability
 

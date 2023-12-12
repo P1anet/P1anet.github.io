@@ -9,21 +9,32 @@ tags:
   - LearnCS
 ---
 
-# Vim基本操作
+# Category
+
+- [Vim基本操作](#vim基本操作)
+  - [打开方式](#打开方式)
+  - [模式](#模式)
+- [【插入】tmux使用](#插入tmux使用)
+  - [session](#session)
+  - [window](#window)
+  - [pane](#pane)
+- [Linux下C++开发环境配置](#linux下c开发环境配置)
+
+## Vim基本操作
 
 ![vim_keyboard](/img/in-post/cs_learning/2023-03-26-vimlinuxc.gif)
 
-## 打开方式
+### 打开方式
 
 1. vim [文件路径]
 2. vim +[光标位置] [文件路径]
 3. vim +/[高亮关键字] [文件路径]
 
-## 模式
+### 模式
 
-### 常规模式
+#### 常规模式
 
-#### 移动光标
+##### 移动光标
 
 - `h`或`←`：&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;光标左移一个字符
 - `j`或`↓`：光标下移一个字符
@@ -39,7 +50,7 @@ tags:
 - `G`：移到末行
 - `nG`：移到第n行
 
-#### 搜索替换
+##### 搜索替换
 
 - `/字符串 + 回车`：向下搜索指定字符串
 - `n`：继续向下搜索下一个字符串
@@ -50,7 +61,7 @@ tags:
 - `:1,10s/word1/word2/g`：将第1行到第10行的word1替换为word2
 - `:1,$s/word1/word2/g`：将第1行到当前行的word1替换为word2
 
-#### 复制粘贴删除
+##### 复制粘贴删除
 
 - `x`：删除后一个字符
 - `X`：删除前一个字符
@@ -62,14 +73,14 @@ tags:
 - `Ctrl + r`：撤回刚才的撤回操作
 - `.`：重复刚才的操作
 
-### 插入模式
+#### 插入模式
 
 - `i`：进入插入模式
 - `o`：在下一行插入新行并进入插入模式
 - `R`：进入替代模式
 - `esc`：退出插入模式，进入常规模式
 
-### 命令模式
+#### 命令模式
 
 - `:w`：保存
 - `:q`：退出
@@ -81,16 +92,16 @@ tags:
 - `:2,5 w [文件名]`：将第2到5行的内容保存到另一个文件中（指定行另存为）
 - `:r [文件名]`：输入另一个文件的内容，到光标的下一行
 
-### 可视模式
+#### 可视模式
 
 - `v`：面向字符的可视模式
 - `V`：面向行的可视模式
 - `ctrl + v`：面向列块的可视模式
 - `gv`：重选上次的高亮选区
 
-# 【插入】tmux使用
+## 【插入】tmux使用
 
-## session
+### session
 
 - `tmux` or `tmux new -s <session-name>`
 - `tmux detach` or `ctrl+b d`
@@ -100,7 +111,7 @@ tags:
 - `tmux switch -t <session-name>`
 - `tmux rename-session -t <old-session-name> <new-session-name>` or `ctrl+b $`
 
-## window
+### window
 
 - `tmux new-window -n <window-name>` or `ctrl+b c`
 - `tmux select-window -t <window-name>`
@@ -111,7 +122,7 @@ tags:
 - `tmux kill-window -t <window-name>` or `ctrl+b &`
 
 
-## pane
+### pane
 
 - `tmux split-window` or `ctrl+b "`
 - `tmux split-window -h` or `ctrl+b %`
@@ -127,7 +138,7 @@ tags:
 - `ctrl+b z` 放大窗格，再次触发还原
 - `ctrl+b t` 显示时间，回车还原
 
-# Linux下C++开发环境配置
+## Linux下C++开发环境配置
 
 > curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 >
