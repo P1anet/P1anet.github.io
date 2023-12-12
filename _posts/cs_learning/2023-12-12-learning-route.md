@@ -83,6 +83,10 @@ tags:
 
 [MordernC++ Tutorial](https://changkun.de/modern-cpp/) - [changkun](https://github.com/changkun/modern-cpp-tutorial)
 
+[C++后端知识点](https://github.com/youngyangyang04/TechCPP)
+
+[《大话设计模式》C++代码](https://github.com/youngyangyang04/DesignPattern)
+
 [Light-City/CPlusPlusThings](https://github.com/Light-City/CPlusPlusThings)
 
 [TheAlgorithms/C-Plus-Plus](https://github.com/TheAlgorithms/C-Plus-Plus)
