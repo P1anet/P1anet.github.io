@@ -59,6 +59,8 @@ tags:
 
 ### Single
 
+[Google 开源项目风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/) - [zh-google-styleguide](https://github.com/zh-google-styleguide/zh-google-styleguide)
+
 [GitBook-MIT6.824](https://mit-public-courses-cn-translatio.gitbook.io/mit6-824/)
 
 [GitBook-MIT6.S081](https://mit-public-courses-cn-translatio.gitbook.io/mit6-s081/)
