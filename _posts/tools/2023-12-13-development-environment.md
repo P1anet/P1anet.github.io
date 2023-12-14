@@ -59,7 +59,11 @@ tags:
 
 [shadowsocks/shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows)
 
-[ACL4SSR/ACL4SSR](https://github.com/ACL4SSR/ACL4SSR)
+[tindy2013/subconverter](https://github.com/tindy2013/subconverter)
+
+[CareyWang/sub-web](https://github.com/CareyWang/sub-web)
+
+[SubConv/SubConv-4-ZJU](https://github.com/SubConv/SubConv-4-ZJU)
 
 [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
 
