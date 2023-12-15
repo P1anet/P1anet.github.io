@@ -12,6 +12,7 @@ tags:
 # Category
 
 - [Websites](#websites)
+  - [Code](#code)
   - [Full](#full)
   - [Single](#single)
 - [Courses](#courses)
@@ -29,13 +30,15 @@ tags:
 
 ## Websites
 
-### Full
+### Code
 
 [代码随想录](https://www.programmercarl.com/) - [youngyangyang04](https://github.com/youngyangyang04/leetcode-master)
 
 [宫水三叶的刷题日记 on WeChat - SharingSource](https://github.com/SharingSource/LogicStack-LeetCode)
 
-[CS自学指南](https://csdiy.wiki/) - [cs-self-learning](https://github.com/pkuflyingpig/cs-self-learning/)
+### Full
+
+[**CS自学指南**](https://csdiy.wiki/) - [cs-self-learning](https://github.com/pkuflyingpig/cs-self-learning/)
 
 [CS-Notes](https://www.cyc2018.xyz/) - [CyC2018](https://github.com/CyC2018/CS-Notes)
 
@@ -70,6 +73,8 @@ tags:
 [MIT6.S081 Blog](https://blog.miigon.net/categories/mit6-s081/) - [Miigon](https://github.com/Miigon)
 
 [chaozh/MIT-6.824](https://github.com/chaozh/MIT-6.824)
+
+[OneSizeFitsQuorum/MIT6.824-2021](https://github.com/OneSizeFitsQuorum/MIT6.824-2021)
 
 [huihongxiao/MIT6.824](https://github.com/huihongxiao/MIT6.824)
 

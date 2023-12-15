@@ -23,6 +23,8 @@ tags:
 
 ## Environment
 
+[editorconfig](https://github.com/editorconfig)
+
 ### tmux&[zsh-users/zsh](https://github.com/zsh-users/zsh)
 
 [ohmyzsh/ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
