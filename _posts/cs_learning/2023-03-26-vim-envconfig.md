@@ -9,16 +9,7 @@ tags:
   - LearnCS
 ---
 
-# Category
-
-- [Vim基本操作](#vim基本操作)
-  - [打开方式](#打开方式)
-  - [模式](#模式)
-- [【插入】tmux使用](#插入tmux使用)
-  - [session](#session)
-  - [window](#window)
-  - [pane](#pane)
-- [Linux下C++开发环境配置](#linux下c开发环境配置)
+# Vim基本操作及Linux下C++开发环境配置
 
 ## Vim基本操作
 

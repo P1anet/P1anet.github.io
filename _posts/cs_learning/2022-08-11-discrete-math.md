@@ -9,17 +9,7 @@ tags:
   - LearnCS
 ---
 
-# Category
-
-- [Introduction and Proofs](#introduction-and-proofs)
-- [Induction](#induction)
-- [Number Theory](#number-theory)
-- [Graph Theory and Coloring](#graph-theory-and-coloring)
-- [Sums and Asymptotics](#sums-and-asymptotics)
-- [Divide and Conquer](#divide-and-conquer)
-- [Linear Recurrences](#linear-recurrences)
-- [Counting Rules](#counting-rules)
-- [Probability](#probability)
+# Discrete Math
 
 ##  Introduction and Proofs
 

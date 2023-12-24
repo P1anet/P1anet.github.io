@@ -9,12 +9,7 @@ tags:
   - LearnCS
 ---
 
-# Category
-
-- [组件：](#组件)
-- [安装流：](#安装流)
-- [在ubuntu上安装vSphere Bitfusion Client](#在ubuntu上安装vsphere-bitfusion-client)
-- [在esxi主机上配置显卡驱动：](#在esxi主机上配置显卡驱动)
+# Bitfusion测试环境搭建笔记
 
 ![bitfusion集群](/img/in-post/cs_learning/2023-01-11-bitfusion-cluster.png)
 

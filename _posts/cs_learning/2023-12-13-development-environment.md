@@ -9,17 +9,7 @@ tags:
   - LearnCS
 ---
 
-# Catrgory
-
-- [Environment](#environment)
-  - [tmux\&zsh-users/zsh](#tmuxzsh-userszsh)
-  - [vim\&neovim/neovim](#vimneovimneovim)
-  - [vpn](#vpn)
-- [Development](#development)
-  - [latex](#latex)
-  - [fonts](#fonts)
-  - [markdown](#markdown)
-  - [tools](#tools)
+# 开发环境配置记录
 
 ## Environment
 

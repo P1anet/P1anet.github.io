@@ -9,17 +9,7 @@ tags:
   - LearnCS
 ---
 
-# Category
-
-- [Prerequisites](#prerequisites)
-  - [gcc/g++](#gccg)
-  - [库](#库)
-  - [Makefile](#makefile)
-  - [GDB调试](#gdb调试)
-  - [文件IO](#文件io)
-- [进程](#进程)
-  - [进程间通信](#进程间通信)
-- [线程](#线程)
+# Linux高并发服务器开发
 
 ## Prerequisites
 

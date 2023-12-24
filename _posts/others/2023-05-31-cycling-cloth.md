@@ -9,15 +9,7 @@ tags:
   - Others
 ---
 
-# 目录
-
-- [_介绍 · Introduction_](#介绍--introduction)
-  - [设计稿以及3d效果图](#设计稿以及3d效果图)
-  - [具体设计](#具体设计)
-- [_征订 · Subscription_](#征订--subscription)
-  - [价格](#价格)
-  - [尺码表](#尺码表)
-  - [统计表格](#统计表格)
+# 2023伞友服介绍以及订购登记
 
 ## _介绍 · Introduction_
 

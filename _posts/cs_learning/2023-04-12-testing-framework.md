@@ -9,34 +9,7 @@ tags:
   - LearnCS
 ---
 
-# Category
-
-- [Outline](#outline)
-- [各测试框架简介](#各测试框架简介)
-  - [Junit](#junit)
-  - [Selenium](#selenium)
-  - [TestNG](#testng)
-  - [Cucumber](#cucumber)
-  - [Pytest](#pytest)
-  - [Robot Framework](#robot-framework)
-  - [UnitTest/PyUnit](#unittestpyunit)
-  - [Behave](#behave)
-  - [Lettuce](#lettuce)
-  - [Appium](#appium)
-  - [ATX](#atx)
-- [unittest - 单元测试框架](#unittest---单元测试框架)
-  - [面向对象方式支持的概念](#面向对象方式支持的概念)
-  - [Basic Example](#basic-example)
-  - [Command-line Interface](#command-line-interface)
-  - [Test Discovery](#test-discovery)
-  - [Organizing Test code](#organizing-test-code)
-  - [Reusing Old Test code](#reusing-old-test-code)
-  - [Skipping Tests \& Expected Failures](#skipping-tests--expected-failures)
-  - [Distinguishing Test Iterations Using Subtests](#distinguishing-test-iterations-using-subtests)
-  - [Classes \& Functions](#classes--functions)
-  - [Class and Module Fixtures](#class-and-module-fixtures)
-  - [信号处理3.2 新版功能](#信号处理32-新版功能)
-- [Conclusion](#conclusion)
+# 测试框架
 
 ![自动化测试框架](https://img-blog.csdnimg.cn/c8f527c0a4ac47da9b1ec190d9b24d47.png)
 
