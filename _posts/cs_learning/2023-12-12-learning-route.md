@@ -105,6 +105,15 @@ tags:
 - 6.5840——分布式系统。
 - 其他，如CS106L了解Modern C++，Data100数据分析、吴恩达机器学习等等。 
 
+## Bilibili大学
+
+- [【MIT公开课】 6.046 算法设计与分析 (完结·中英字幕·机翻)](https://www.bilibili.com/video/BV1A7411E737/)
+- [\[中英字幕\] C++](https://www.bilibili.com/video/BV1Ay4y1i7Z6/)
+- [2020 MIT 6.824 分布式系统](https://www.bilibili.com/video/BV1R7411t71W/)
+- [MIT 6.S081 2020 操作系统 \[中英文字幕\]](https://www.bilibili.com/video/BV19k4y1C7kA/)
+- [【MIT6.042J中英文字幕】离散数学 Mathematics for Computer Science, Fall 2010](https://www.bilibili.com/video/BV1zt411M7D2/)
+- [\[中字\]麻省理工学院公开课：计算机科学的数学 MIT 6.042J&18.062J（更新至第二十讲，共二十五讲）](https://www.bilibili.com/video/BV1Kb411n7oa/)
+
 ## [非技术因素在面试中的重要性](https://www.cc98.org/topic/5521700)
 
 ### 本文大纲
